@@ -4,11 +4,11 @@ import { DialogTrigger } from './ui/dialog'
 import { InOrbitIcon } from './ui/in-orbit-icon'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
-import { OutlineButton } from './ui/outline-button'
 import { useQuery } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
 import ptBR from 'dayjs/locale/pt-br'
+import { PendingGoals } from './pending-goals'
 
 dayjs.locale(ptBR)
 
@@ -63,24 +63,7 @@ export function Summary() {
 
       <Separator />
 
-      <div className="flex flex-wrap gap-3">
-        <OutlineButton>
-          <Plus className="text-zinc-600 size-4" />
-          Meditar
-        </OutlineButton>
-        <OutlineButton>
-          <Plus className="text-zinc-600 size-4" />
-          Praticar exercícios
-        </OutlineButton>
-        <OutlineButton>
-          <Plus className="text-zinc-600 size-4" />
-          Acordar cedo
-        </OutlineButton>
-        <OutlineButton>
-          <Plus className="text-zinc-600 size-4" />
-          Acordar cedo
-        </OutlineButton>
-      </div>
+      <PendingGoals />
 
       <div className="flex flex-col gap-6">
         <h2 className="font-medium text-xl">Seu planejamento semanal</h2>
