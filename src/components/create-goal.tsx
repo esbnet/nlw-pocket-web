@@ -37,10 +37,8 @@ export function CreateGoal() {
 
 	async function handleCreateGoal(data: CreateGoalForm) {
 		await createGoal(data);
-
 		queryClient.invalidateQueries({ queryKey: ["summary"] });
 		queryClient.invalidateQueries({ queryKey: ["pending-goals"] });
-
 		reset();
 	}
 

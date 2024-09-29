@@ -50,6 +50,10 @@ export function Summary() {
 				</DialogTrigger>
 			</div>
 
+			<Separator />
+			<h2 className="font-medium text-xl">Seu planejamento semanal</h2>
+			<PendingGoals />
+
 			<div className="flex flex-col gap-3">
 				<Progress value={progressValue} max={100}>
 					<ProgressIndicator style={{ width: `${progressValue}%` }} />
@@ -59,20 +63,17 @@ export function Summary() {
 					<span>
 						Você completou{" "}
 						<span className="text-zinc-100">{data?.completed}</span> de{" "}
-						<span className="text-zinc-100">{data?.total}</span> metas nessa
-						semana.
+						<span className="text-zinc-100">{data?.total}</span> atividades
+						programadas para essa semana
 					</span>
 					<span>{progressValue}%</span>
 				</div>
 			</div>
-
 			<Separator />
-
-			<PendingGoals />
 
 			{data.goalsPerDay != null ? (
 				<div className="flex flex-col gap-6">
-					<h2 className="font-medium text-xl">Seu planejamento semanal</h2>
+					<h2 className="font-medium text-xl">Atividades concluidas</h2>
 
 					{Object.entries(data.goalsPerDay).map(([date, goal]) => {
 						const weekDay = dayjs(date).format("dddd");
@@ -86,6 +87,7 @@ export function Summary() {
 										({formattedDate})
 									</span>
 								</h3>
+								<Separator />
 
 								<ul className="flex flex-col gap-3">
 									{goal.map((goal) => {
